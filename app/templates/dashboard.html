@@ -12,6 +12,10 @@
       <p class="eyebrow">RELEASE 1 · FORGE THE FOUNDATION</p>
       <h1>Fusion Engineer Blueprint</h1>
       <p class="welcome">Welcome back, {{ name }}.</p>
+      <section class="mission-card">
+        <h2>🎯 Current Mission</h2>
+        <p>{{ mission }}</p>
+      </section>
       <p class="mission">Build the skills and experience needed to help make commercial fusion energy practical.</p>
     </header>
 
@@ -38,9 +42,19 @@
             <p>{{ quest["description"] }}</p>
           </div>
           <div class="quest-meta">
-            <span>{{ quest["xp"] }} XP</span>
-            <span class="status">{{ quest["status"] }}</span>
-          </div>
+    <span>{{ quest["xp"] }} XP</span>
+
+    {% if quest["status"] == "Complete" %}
+        <span class="status">✓ Complete</span>
+        <form method="post" action="/quests/{{ quest['id'] }}/reopen">
+            <button type="submit">Reopen Quest</button>
+        </form>
+    {% else %}
+        <form method="post" action="/quests/{{ quest['id'] }}/complete">
+            <button type="submit">Complete Quest</button>
+        </form>
+    {% endif %}
+</div>
         </article>
         {% endfor %}
       </div>
