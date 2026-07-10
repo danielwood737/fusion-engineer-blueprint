@@ -24,6 +24,27 @@ def load_quests() -> list[dict]:
 def save_quests(quests: list[dict]) -> None:
     with DATA_FILE.open("w", encoding="utf-8") as file:
         json.dump(quests, file, indent=2)
+def get_title(level: int) -> str:
+    if level == 1:
+        return "Programming Beginner"
+    elif level == 2:
+        return "Programming Apprentice"
+    elif level == 3:
+        return "Engineering Student"
+    elif level == 4:
+        return "Engineering Apprentice"
+    elif level == 5:
+        return "Nuclear Engineering Scholar"
+    elif level == 6:
+        return "Simulation Apprentice"
+    elif level == 7:
+        return "Research Candidate"
+    elif level == 8:
+        return "Fusion Candidate"
+    elif level == 9:
+        return "National Lab Candidate"
+    else:
+        return "Fusion Systems Engineer"
 
 @app.post("/quests/{quest_id}/complete")
 def complete_quest(quest_id: str):
@@ -51,6 +72,7 @@ def dashboard(request: Request):
     completed = sum(1 for quest in quests if quest["status"] == "Complete")
     total_xp = sum(quest["xp"] for quest in quests if quest["status"] == "Complete")
     level = total_xp // 500 + 1
+    title = get_title(level)
     progress = round((completed / len(quests)) * 100) if quests else 0
 
     return templates.TemplateResponse(
@@ -65,5 +87,6 @@ def dashboard(request: Request):
             "progress": progress,
             "name": "Daniel",
             "mission": MISSION,
+            "title": title,
         },
     )
