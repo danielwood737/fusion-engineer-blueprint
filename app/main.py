@@ -37,5 +37,6 @@ def dashboard(request: Request):
             "total_xp": total_xp,
             "level": level,
             "progress": progress,
+            "name": "Daniel",
         },
     )
