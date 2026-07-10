@@ -1,0 +1,42 @@
+[
+  {
+    "id": "Q001",
+    "type": "MAIN QUEST",
+    "title": "Build your digital workshop",
+    "description": "Install Python, VS Code, Git, and create a GitHub account.",
+    "xp": 200,
+    "status": "Complete"
+  },
+  {
+    "id": "Q002",
+    "type": "MAIN QUEST",
+    "title": "Run your first Python program",
+    "description": "Create and run hello.py from inside VS Code.",
+    "xp": 100,
+    "status": "Complete"
+  },
+  {
+    "id": "Q003",
+    "type": "SIDE QUEST",
+    "title": "Create your professional GitHub profile",
+    "description": "Add a photo, short bio, Georgia Tech, and fusion-energy interests.",
+    "xp": 75,
+    "status": "Not Started"
+  },
+  {
+    "id": "Q004",
+    "type": "MAIN QUEST",
+    "title": "Complete CS50P Lecture 0",
+    "description": "Finish the lecture and complete the assigned beginner exercises.",
+    "xp": 200,
+    "status": "Not Started"
+  },
+  {
+    "id": "Q005",
+    "type": "PROFESSIONAL QUEST",
+    "title": "Build LinkedIn Profile v1",
+    "description": "Complete your headline, About section, education, experience, and initial skills.",
+    "xp": 175,
+    "status": "Not Started"
+  }
+]

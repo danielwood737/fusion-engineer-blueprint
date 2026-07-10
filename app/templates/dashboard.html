@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fusion Engineer Blueprint</title>
+  <link rel="stylesheet" href="{{ url_for('static', path='/styles.css') }}">
+</head>
+<body>
+  <main class="container">
+    <header>
+      <p class="eyebrow">RELEASE 1 · FORGE THE FOUNDATION</p>
+      <h1>Fusion Engineer Blueprint</h1>
+      <p class="mission">Build the skills and experience needed to help make commercial fusion energy practical.</p>
+    </header>
+
+    <section class="stats">
+      <article><span>Level</span><strong>{{ level }}</strong></article>
+      <article><span>Total XP</span><strong>{{ total_xp }}</strong></article>
+      <article><span>Quests</span><strong>{{ completed }}/{{ total }}</strong></article>
+      <article><span>Release</span><strong>{{ progress }}%</strong></article>
+    </section>
+
+    <section>
+      <div class="section-heading">
+        <h2>Current quests</h2>
+        <span>{{ progress }}% complete</span>
+      </div>
+      <div class="progress"><div style="width: {{ progress }}%"></div></div>
+
+      <div class="quest-list">
+        {% for quest in quests %}
+        <article class="quest">
+          <div>
+            <p class="quest-type">{{ quest["type"] }}</p>
+            <h3>{{ quest["title"] }}</h3>
+            <p>{{ quest["description"] }}</p>
+          </div>
+          <div class="quest-meta">
+            <span>{{ quest["xp"] }} XP</span>
+            <span class="status">{{ quest["status"] }}</span>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+  </main>
+</body>
+</html>
